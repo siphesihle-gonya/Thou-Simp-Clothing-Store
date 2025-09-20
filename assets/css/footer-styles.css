@@ -1,0 +1,162 @@
+/* Bootstrap Footer 07 Styles - Customized for Thou Simp/SERENE */
+
+/* Footer Base Styles */
+footer {
+    padding: 7em 0;
+}
+
+.footer-07 {
+    background: #121212;
+}
+
+.footer-07 a {
+    color: #a3de83;
+}
+
+.footer-07 p {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-07 .footer-heading {
+    font-size: 30px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.footer-07 .footer-heading .logo {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-07 .menu {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.footer-07 .menu a {
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.footer-07 .menu a:hover {
+    color: #a3de83;
+}
+
+/* Social Media Styles */
+.ftco-footer-social {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.ftco-footer-social li {
+    list-style: none;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.ftco-footer-social li a {
+    height: 40px;
+    width: 40px;
+    display: block;
+    background: transparent;
+    border: 1px solid #a3de83;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.ftco-footer-social li a:hover {
+    background: #a3de83;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.ftco-footer-social li a span {
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #a3de83;
+}
+
+.ftco-footer-social li a:hover span {
+    color: #fff;
+}
+
+/* Copyright Styles */
+.footer-07 .copyright {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+.footer-07 .copyright a {
+    color: #a3de83;
+    text-decoration: none;
+}
+
+.footer-07 .copyright a:hover {
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-07 .footer-heading {
+        font-size: 24px;
+    }
+    
+    .footer-07 .menu a {
+        display: block;
+        margin: 5px 0;
+    }
+    
+    .ftco-footer-social {
+        text-align: center;
+    }
+    
+    footer {
+        padding: 4em 0;
+    }
+}
+
+/* Custom Thou Simp/SERENE Branding */
+.thou-simp-footer .footer-heading .logo {
+    background: linear-gradient(135deg, #dc3545 0%, #a3de83 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Playfair Display', serif;
+}
+
+.thou-simp-footer .menu a:hover {
+    color: #dc3545;
+}
+
+.thou-simp-footer .ftco-footer-social li a {
+    border-color: #dc3545;
+}
+
+.thou-simp-footer .ftco-footer-social li a:hover {
+    background: #dc3545;
+}
+
+.thou-simp-footer .ftco-footer-social li a span {
+    color: #dc3545;
+}
+
+.thou-simp-footer .ftco-footer-social li a:hover span {
+    color: #fff;
+}
+
+.thou-simp-footer .copyright a {
+    color: #dc3545;
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- molla/catgory.html  22 Nov 2019 10:02:48 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Thou Simp - Clothing Store</title>
+    <meta name="keywords" content="HTML5 Template">
+    <meta name="description" content="Molla - Bootstrap eCommerce Template">
+    <meta name="author" content="p-themes">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/icons/favicon.ico.png">
+
+    <meta name="apple-mobile-web-app-title" content="Molla">
+    <meta name="application-name" content="Molla">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/modern-style.css">
+    <link rel="stylesheet" href="assets/css/footer-styles.css">
+    <link rel="stylesheet" href="assets/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/plugins/nouislider/nouislider.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="header-middle sticky-header">
+                <div class="container">
+                    <div class="header-left">
+                        <button class="mobile-menu-toggler">
+                            <span class="sr-only">Toggle mobile menu</span>
+                            <i c1lass="icon-bars"></i>
+                        </button>
+
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/thou/logo.png" alt="Logo" width="120" height="25">
+                        </a>
+
+                        <nav class="main-nav">
+                            <ul class="menu sf-arrows">
+                                <li >
+                                    <a href="index.html">Home</a></li>
+                                <li class="megamenu-container active"><a href="category.html">Shop</a></li>
+                                <li><a href="about-2.html">About</a></li>   
+                            </ul><!-- End .menu -->
+                        </nav><!-- End .main-nav -->
+                    </div><!-- End .header-left -->
+
+                    <div class="header-right">
+                        <div class="header-search">
+                            <a href="#" class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a>
+                            <form action="#" method="get">
+                                <div class="header-search-wrapper">
+                                    <label for="q" class="sr-only">Search</label>
+                                    <input type="search" class="form-control" name="q" id="q" placeholder="Search in..." required>
+                                </div><!-- End .header-search-wrapper -->
+                            </form>
+                        </div><!-- End .header-search -->
+
+                         <div class="dropdown cart-dropdown">
+                            
+                            <a href="cart.html" class="dropdown-toggle" role="button">
+                                <i class="icon-shopping-cart"></i>
+                                <span id="cart-total" class="cart-count">0</span   >
+                            </a>
+                        </div><!-- End .cart-dropdown --><!-- End .header-right -->
+                 </div><!-- End .header-right -->
+                </div><!-- End .container -->
+            </div><!-- End .header-middle -->
+        </header><!-- End .header -->
+
+        <main class="main">
+        	<div class="page-header text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%), url('assets/images/page-header-bg.jpg'); background-size: cover; background-position: center; background-blend-mode: overlay;">
+        		<div class="container">
+        			<h1 class="page-title">Discover Our Collection</h1>
+        			<p class="page-subtitle">Find the perfect style that speaks to you</p>
+        		</div><!-- End .container -->
+        	</div><!-- End .page-header -->
+            <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Items</li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav><!-- End .breadcrumb-nav -->
+
+            <div class="page-content">
+                <div class="container">
+                  	<div class="row">
+                		<div class="col-lg-9">
+                			<div class="toolbox">
+                				<div class="toolbox-left">
+                					
+                				</div><!-- End .toolbox-left -->
+
+                				<div class="toolbox-right">
+                				</div><!-- End .toolbox-right -->
+                			</div><!-- End .toolbox -->
+
+                            <div class="products mb-3">
+                                <div id="product-list" class="row justify-content-center">
+                                    <!-- Loading skeleton -->
+                                    <div id="loading-skeleton" class="col-12 text-center">
+                                        <div class="loading-container">
+                                            <div class="loading"></div>
+                                            <p>Loading amazing products...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <script src="config.js"></script>
+                                 <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const container = document.getElementById("product-list");
+                                            const loadingSkeleton = document.getElementById("loading-skeleton");
+                                            
+                                            // Show loading animation
+                                            loadingSkeleton.style.display = "block";
+                                            
+                                              fetch(rootPath)
+                                              .then(response => response.json())
+                                              .then(products => {
+                                                    // Hide loading skeleton
+                                                    loadingSkeleton.style.display = "none";
+                                                    
+                                                    products.forEach((product, index) => {
+                                                        const item = document.createElement("div")
+                                                        item.className = "col-6 col-md-4 col-lg-4";
+                                                        item.style.animationDelay = `${index * 0.1}s`;
+
+                                                        item.innerHTML = `
+                                                            <div class="product product-7 text-center">
+                                                            <figure class="product-media">
+                                                                <a href="category.html">
+                                                                    <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+                                                                    </a>
+                                                                <div class="product-action">
+                                                                    <button class="btn-product btn-cart" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}">
+                                                                        <span>Add to Cart</span>
+                                                                        <i class="icon-shopping-cart"></i>
+                                                                    </button>
+                                                                    </div>
+                                                                    </figure>
+                                                                <div class="product-body">
+                                                                    <h3 class="product-title">${product.name}</h3>
+                                                                    <div class="product-price">R ${product.price}</div>
+                                                                    <div class="product-rating">
+                                                                        <div class="stars">★★★★★</div>
+                                                                        <span class="rating-text">(4.8)</span>
+                                                                    </div>
+                                                                    </div>
+                                                                    
+                                                        `;
+                                                        container.appendChild(item);
+                                                    });
+
+                                                    //Add to cart handler
+                                                    document.querySelectorAll(".btn-cart").forEach(button => {
+                                                        button.addEventListener("click", function (){
+                                                            const originalText = this.innerHTML;
+                                                            
+                                                            // Add loading state
+                                                            this.innerHTML = '<span>Adding...</span><div class="loading"></div>';
+                                                            this.disabled = true;
+                                                            
+                                                            setTimeout(() => {
+                                                                const product = {
+                                                                    id: this.dataset.id,
+                                                                    name: this.dataset.name,
+                                                                    price: this.dataset.price,
+                                                                    image: this.dataset.image,
+                                                                    quantity: 1
+                                                                };
+                                                                
+                                                                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                                                                const exists = cart.find(item => item.id == product.id);
+                                                                if(exists){
+                                                                    exists.quantity += 1;
+                                                                } else{
+                                                                    cart.push(product);
+                                                                }
+                                                                localStorage.setItem("cart", JSON.stringify(cart));
+                                                                
+                                                                // Update cart count
+                                                                const cartCount = document.getElementById('cart-total');
+                                                                if(cartCount) {
+                                                                    cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+                                                                    cartCount.style.animation = 'pulse 0.5s ease-in-out';
+                                                                }
+                                                                
+                                                                // Success animation
+                                                                this.innerHTML = '<span>✓ Added!</span>';
+                                                                this.style.background = 'linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%)';
+                                                                
+                                                                setTimeout(() => {
+                                                                    this.innerHTML = originalText;
+                                                                    this.style.background = '';
+                                                                    this.disabled = false;
+                                                                }, 1500);
+                                                                
+                                                                // Show toast notification
+                                                                showToast(`${product.name} added to cart!`);
+                                                                
+                                                            }, 800);
+                                                        });
+                                                    });
+                                              });
+                                            });
+                                            
+                                            // Toast notification function
+                                            function showToast(message) {
+                                                const toast = document.createElement('div');
+                                                toast.className = 'toast-notification';
+                                                toast.textContent = message;
+                                                toast.style.cssText = `
+                                                    position: fixed;
+                                                    top: 20px;
+                                                    right: 20px;
+                                                    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+                                                    color: white;
+                                                    padding: 1rem 1.5rem;
+                                                    border-radius: 10px;
+                                                    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+                                                    z-index: 10000;
+                                                    transform: translateX(400px);
+                                                    transition: transform 0.3s ease-out;
+                                                    font-weight: 500;
+                                                    max-width: 300px;
+                                                `;
+                                                
+                                                document.body.appendChild(toast);
+                                                
+                                                setTimeout(() => {
+                                                    toast.style.transform = 'translateX(0)';
+                                                }, 100);
+                                                
+                                                setTimeout(() => {
+                                                    toast.style.transform = 'translateX(400px)';
+                                                    setTimeout(() => {
+                                                        document.body.removeChild(toast);
+                                                    }, 300);
+                                                }, 3000);
+                                            }
+                                            
+                                            // Scroll to top functionality
+                                            const scrollTopBtn = document.getElementById('scroll-top');
+                                            
+                                            window.addEventListener('scroll', () => {
+                                                if (window.pageYOffset > 300) {
+                                                    scrollTopBtn.classList.add('show');
+                                                } else {
+                                                    scrollTopBtn.classList.remove('show');
+                                                }
+                                            });
+                                            
+                                            scrollTopBtn.addEventListener('click', () => {
+                                                window.scrollTo({
+                                                    top: 0,
+                                                    behavior: 'smooth'
+                                                });
+                                            });
+                                            
+                                            // Initialize cart count
+                                            function updateCartCount() {
+                                                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                                                const cartCount = document.getElementById('cart-total');
+                                                if(cartCount) {
+                                                    cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+                                                }
+                                            }
+                                            
+                                            updateCartCount();
+                                    </script>
+
+
+                			<nav aria-label="Page navigation">
+							    <ul class="pagination justify-content-center">
+							        <li class="page-item disabled">
+							            <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+							                <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+							            </a>
+							        </li>
+							        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+							       
+							        <li class="page-item">
+							            <a class="page-link page-link-next" href="#" aria-label="Next">
+							                Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+							            </a>
+							        </li>
+							    </ul>
+							</nav>
+                		</div><!-- End .col-lg-9 -->
+                		
+                	</div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .page-content -->
+        </main><!-- End .main -->
+
+        <footer class="footer-07 thou-simp-footer">
+            <div style="align-items: center;" class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <h2 style="padding-top: 0px" class="footer-heading"><a href="index.html" class="logo">THOU SIMP/SERENE</a></h2>
+                        <ul class="ftco-footer-social p-0">
+                            <li class="ftco-animate"><a href="https://www.facebook.com/profile.php?id=61551781775872" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="icon-facebook-f"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/believes_in_peace?igsh=MTZjNHg3eGRrMmdieA==" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+                        <p class="copyright">
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | THOU SIMP/SERENE
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+    <div class="mobile-menu-container">
+        <div class="mobile-menu-wrapper">
+            <span class="mobile-menu-close"><i class="icon-close"></i></span>
+
+            <form action="#" method="get" class="mobile-search">
+                <label for="mobile-search" class="sr-only">Search </label>
+                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required>
+                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+            </form>
+           <nav class="mobile-nav">
+                <ul class="mobile-menu">
+                    <li class="active">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="category.html">Shop</a>
+                    </li>
+                    <li>
+                        <a href="about-2.html" class="sf-with-ul">About</a>
+                    </li>
+                    <li>
+                        <a href="login.html">Login</a>
+                    </li>
+                </ul>
+            </nav><!-- End .mobile-nav -->
+
+            <div class="social-icons">
+                <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+            </div><!-- End .social-icons -->
+        </div><!-- End .mobile-menu-wrapper -->
+    </div><!-- End .mobile-menu-container --> 
+    <!-- Plugins JS File -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="asseipt src="assets/js/wNumb.js"></script>
+    <script src="assetsts/js/jquery.hoverIntent.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/superfish.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <scr/js/bootstrap-input-spinner.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/nouislider.min.js"></script>
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/modern-interactions.js"></script>
+</body>
+
+
+<!-- molla/category.html  22 Nov 2019 10:02:52 GMT -->
+</html>
