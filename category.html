@@ -110,23 +110,34 @@
                             <div class="products mb-3">
                                 <div id="product-list" class="row justify-content-center">
                                     <!-- Loading skeleton -->
-                                   </div>
+                                    <div id="loading-skeleton" class="col-12 text-center">
+                                        <div class="loading-container">
+                                            <div class="loading"></div>
+                                            <p>Loading amazing products...</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                     <script src="config.js"></script>
                                  <script>
                                         document.addEventListener('DOMContentLoaded', function() {
                                             const container = document.getElementById("product-list");
+                                            const loadingSkeleton = document.getElementById("loading-skeleton");
+                                            
                                             // Show loading animation
-                                           
+                                            loadingSkeleton.style.display = "block";
+                                            
                                               fetch(rootPath)
                                               .then(response => response.json())
                                               .then(products => {
                                                     // Hide loading skeleton
-                                                   
+                                                    loadingSkeleton.style.display = "none";
+                                                    
                                                     products.forEach((product, index) => {
                                                         const item = document.createElement("div")
                                                         item.className = "col-6 col-md-4 col-lg-4";
-                                                
+                                                        item.style.animationDelay = `${index * 0.1}s`;
+
                                                         item.innerHTML = `
                                                             <div class="product product-7 text-center">
                                                             <figure class="product-media">
