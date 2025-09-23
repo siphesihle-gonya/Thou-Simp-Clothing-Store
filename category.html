@@ -116,8 +116,6 @@
                                  <script>
                                         document.addEventListener('DOMContentLoaded', function() {
                                             const container = document.getElementById("product-list");
-                                            const loadingSkeleton = document.getElementById("loading-skeleton");
-                                            
                                             // Show loading animation
                                            
                                               fetch(rootPath)
@@ -128,8 +126,7 @@
                                                     products.forEach((product, index) => {
                                                         const item = document.createElement("div")
                                                         item.className = "col-6 col-md-4 col-lg-4";
-                                                        item.style.animationDelay = `${index * 0.1}s`;
-
+                                                
                                                         item.innerHTML = `
                                                             <div class="product product-7 text-center">
                                                             <figure class="product-media">
